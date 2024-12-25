@@ -1,0 +1,30 @@
+<html>
+	<body>
+		<h1> Search for a product</h1>
+		<form th:action="@/searchbyid}" method="post">
+			<label>Enter Id:</label>
+			<input type="number" name="id">
+			<button type="submit">Search</button>
+		</form>
+		<div th:if="${employee !=null}">
+			<h2>Product Details</h2>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+			<p><strong>Id:</strong><span th:text="${employee.id}"></span></p>
+		</div>
+		<div th:if="${employee == null}">
+			<p> No Employee Found</p>
+		</div>
+	</body>
+</html>

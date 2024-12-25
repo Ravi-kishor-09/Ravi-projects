@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: aqua;
+            margin-bottom: 20px;
+            animation: text-jump 2s infinite;
+        }
+        @keyframes text-jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        table {
+            color: white;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        thead th {
+            color: red;
+            background-color: #333;
+        }
+        tbody td {
+            color: chartreuse;
+        }
+        tbody tr:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+        .icon {
+            color: gold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center py-4">
+        <h1><i class="fas fa-box"></i> PRODUCT LIST</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag icon"></i>Id</th>
+                        <th><i class="fas fa-tag icon"></i>Name</th>
+                        <th><i class="fas fa-industry icon"></i>Brand</th>
+                        <th><i class="fas fa-globe icon"></i>MadeIn</th>
+                        <th><i class="fas fa-dollar-sign icon"></i>Price</th>
+                        <th><i class="fas fa-boxes icon"></i>Quantity</th>
+                        <th><i class="fas fa-percent icon"></i>Discount Rate</th>
+                        <th><i class="fas fa-percentage icon"></i>Tax Rate</th>
+                        <th><i class="fas fa-tags icon"></i>Discount Price</th>
+                        <th><i class="fas fa-gift icon"></i>Offer Price</th>
+                        <th><i class="fas fa-warehouse icon"></i>Stock Value</th>
+                        <th><i class="fas fa-calculator icon"></i>Final Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.Id}"></td>
+                        <td th:text="${product.Name}"></td>
+                        <td th:text="${product.Brand}"></td>
+                        <td th:text="${product.MadeIn}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.Quantity}"></td>
+                        <td th:text="${product.discountRate}"></td>
+                        <td th:text="${product.taxRate}"></td>
+                        <td th:text="${product.discountprice}"></td>
+                        <td th:text="${product.offerprice}"></td>
+                        <td th:text="${product.stockvalue}"></td>
+                        <td th:text="${product.finalprice}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+package com.sathya.spring2.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sathya.spring2.entity.employeeentity;
+import com.sathya.spring2.model.employeemodel;
+import com.sathya.spring2.repository.employeerepository;
+
+@Service
+public class employeeservice {
+	@Autowired
+	employeerepository employeerepository;
+	
+	public void saveemployeeDetails(employeemodel employeemodel) {
+		
+	}
+
+}

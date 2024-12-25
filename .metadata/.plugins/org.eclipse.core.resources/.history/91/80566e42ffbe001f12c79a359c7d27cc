@@ -1,0 +1,29 @@
+spring.application.name=spring1
+server.port=1111
+
+# H2 Database Configuration
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:ravi
+spring.datasource.username=sa
+spring.datasource.password=123
+
+# Hibernate Configuration
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+
+# Enable H2 Console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+#------------
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.encoding=UTF-8
+spring.thymeleaf.cache=false
+
+#--------
+
+

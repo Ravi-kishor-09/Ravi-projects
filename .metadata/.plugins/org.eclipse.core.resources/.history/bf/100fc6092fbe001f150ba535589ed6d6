@@ -1,0 +1,32 @@
+package com.sathya.spring2.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+@Entity
+@Table(name="EmployeeDetails")
+public class employeeentity {
+	@jakarta.persistence.Id
+	
+	private long Id;
+	private String Name;
+	
+	private int age;
+	private String gender;
+	double basicSalary;      // Basic salary of the employee
+	double hra;              // House Rent Allowance
+	double da;               // Dearness Allowance
+	double allowances;       // Other allowances
+	double deductions;       // Total deductions like PF, tax, etc.
+	double grossSalary;      // Gross salary before deductions
+	double netSalary;        // Final salary after deductions
+
+
+}

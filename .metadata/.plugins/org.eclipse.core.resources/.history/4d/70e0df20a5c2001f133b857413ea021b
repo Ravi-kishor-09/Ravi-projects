@@ -1,0 +1,19 @@
+package com.sathya.spring1.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class productmodel {
+	private String Name;
+	private String Brand;
+	private String MadeIn;
+	private double Price;
+	private int Quantity;
+	private double discountRate;
+	
+
+}

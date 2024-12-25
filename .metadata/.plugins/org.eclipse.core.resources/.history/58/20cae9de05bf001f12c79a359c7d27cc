@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Product</title>
+    <!-- Bootstrap CDN for styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global fade-in effect */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Gradient background */
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Floating search form */
+        .search-form {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        /* Search input and button */
+        .form-control {
+            width: 50%;
+            border-radius: 50px;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animated typing effect for heading */
+        .animated-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: typing 3s steps(30) infinite, blink-caret .75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Card hover effect */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Product icon animation */
+        .product-icon {
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Modal content style */
+        .modal-content {
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+        }
+
+        /* Spinner loader */
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        /* Floating button style */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="spinner" id="loading-spinner">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div class="container fade-in">
+    <!-- Animated heading -->
+    <div class="search-form">
+        <h1 class="animated-heading">Search for Your Favorite Product</h1>
+    </div>
+
+    <form action="/searchbyid" method="post" class="search-form fade-in">
+        <div class="mb-3">
+            <input type="number" name="id" class="form-control" id="id" placeholder="Enter Product ID" required>
+        </div>
+        <button type="submit" class="btn">Search</button>
+    </form>
+
+    <!-- Product details card -->
+    <div class="product-details mt-5 slide-in-left fade-in">
+        <div th:if="${product != null}" class="card p-3 mb-4">
+            <h2>Product Details</h2>
+            <p><strong>Id:</strong> <span th:text="${product.Id}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${product.Name}"></span></p>
+            <p><strong>Brand:</strong> <span th:text="${product.Brand}"></span></p>
+            <p><strong>Made In:</strong> <span th:text="${product.MadeIn}"></span></p>
+            <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
+            <p><strong>Quantity:</strong> <span th:text="${product.Quantity}"></span></p>
+            <p><strong>Discount Rate:</strong> <span th:text="${product.discountRate}"></span></p>
+            <p><strong>Tax Rate:</strong> <span th:text="${product.taxRate}"></span></p>
+            <p><strong>Discount Price:</strong> <span th:text="${product.discountprice}"></span></p>
+            <p><strong>Offer Price:</strong> <span th:text="${product.offerprice}"></span></p>
+            <p><strong>Stock Value:</strong> <span th:text="${product.stockvalue}"></span></p>
+            <p><strong>Final Price:</strong> <span th:text="${product.finalprice}"></span></p>
+        </div>
+
+        <div th:if="${product == null}">
+            <p class="alert alert-danger">No product found</p>
+        </div>
+    </div>
+</div>
+
+<!-- Floating button for additional action -->
+<div class="floating-btn" id="floating-btn">
+    <i class="bi bi-search"></i>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.js"></script>
+
+<script>
+    // Show loading spinner while page loads
+    window.onload = function() {
+        document.getElementById("loading-spinner").style.display = "none";
+    }
+
+    // Floating button click animation
+    document.getElementById("floating-btn").addEventListener("click", function() {
+        alert("You clicked the floating action button!");
+    });
+</script>
+
+</body>
+</html>

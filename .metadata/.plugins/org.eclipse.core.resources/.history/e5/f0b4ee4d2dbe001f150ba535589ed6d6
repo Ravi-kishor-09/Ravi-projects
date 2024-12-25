@@ -1,0 +1,15 @@
+package com.sathya.spring2.model;
+
+import lombok.Data;
+
+@Data
+public class employeemodel {
+	private long Id;
+	private String Name;
+	private double salary;
+	private int age;
+	private String gender;
+	
+	
+
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff6b6b, #f8a5c2);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 4rem;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-out, glow 2s infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Keyframe for slide-in animation */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glowing text effect */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #feb47b, #ff7e5f);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 3D Parallax Effect */
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            transform: translate3d(0, 0, 0);
+            background: url('https://source.unsplash.com/random') no-repeat center center;
+            background-size: cover;
+            animation: parallaxEffect 10s ease-in-out infinite;
+        }
+
+        @keyframes parallaxEffect {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(50px, -50px, 0);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Floating Particles Effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: particleAnim 8s ease-out infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes particleAnim {
+            0% {
+                transform: translate(0, 0) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(500px, 800px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            animation: bubbleAnim 8s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes bubbleAnim {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(150px, -200px) scale(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(300px, -400px) scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Button with animation */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff5722;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: floatBtn 3s ease-in-out infinite alternate;
+            cursor: pointer;
+        }
+
+        @keyframes floatBtn {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Interactive progress bar */
+        .progress-bar {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 15px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 70%;
+            background: linear-gradient(90deg, #ff6b6b, #f8a5c2);
+            animation: progressAnim 2s ease-in-out infinite;
+        }
+
+        @keyframes progressAnim {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parallax"></div>
+    <h1>Employee Details Entered Successfully...</h1>
+
+    
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle" style="top: 10px; left: 10px; width: 8px; height: 8px;"></div>
+        <div class="particle" style="top: 40px; left: 100px; width: 6px; height: 6px;"></div>
+        <div class="particle" style="top: 70px; left: 150px; width: 10px; height: 10px;"></div>
+        <div class="particle" style="top: 100px; left: 200px; width: 5px; height: 5px;"></div>
+        <div class="particle" style="top: 200px; left: 300px; width: 12px; height: 12px;"></div>
+    </div>
+
+    <!-- Floating Bubbles -->
+    <div class="bubble" style="top: 10%; left: 10%; width: 80px; height: 80px;"></div>
+    <div class="bubble" style="top: 20%; left: 40%; width: 100px; height: 100px;"></div>
+    <div class="bubble" style="top: 30%; left: 70%; width: 120px; height: 120px;"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: aqua;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px aqua;
+            animation: text-jump 2s infinite;
+        }
+        @keyframes text-jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Table Styles */
+        table {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        thead th {
+            background: linear-gradient(90deg, rgb(128, 255, 255), rgb(0, 0, 0));
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        tbody td {
+            color: #d4f3ef;
+        }
+        tbody tr {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        tbody tr:hover {
+            background: #333;
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        /* Column Icons */
+        .icon {
+            color: gold;
+            margin-right: 8px;
+        }
+
+        /* Button and Interaction Styles */
+        .btn {
+            border: none;
+            color: white;
+            background: linear-gradient(90deg, #56ab2f, #a8e063);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #a8e063, #56ab2f);
+            box-shadow: 0 0 10px #a8e063;
+        }
+
+        /* Row Glow Effect */
+        tbody tr:hover td {
+            text-shadow: 0 0 8px #39ff14;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center py-4">
+        <h1><i class="fas fa-box"></i> PRODUCT LIST</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag icon"></i>Id</th>
+                        <th><i class="fas fa-tag icon"></i>Name</th>
+                        <th><i class="fas fa-industry icon"></i>Brand</th>
+                        <th><i class="fas fa-globe icon"></i>MadeIn</th>
+                        <th><i class="fas fa-dollar-sign icon"></i>Price</th>
+                        <th><i class="fas fa-boxes icon"></i>Quantity</th>
+                        <th><i class="fas fa-percent icon"></i>Discount Rate</th>
+                        <th><i class="fas fa-percentage icon"></i>Tax Rate</th>
+                        <th><i class="fas fa-tags icon"></i>Discount Price</th>
+                        <th><i class="fas fa-gift icon"></i>Offer Price</th>
+                        <th><i class="fas fa-warehouse icon"></i>Stock Value</th>
+                        <th><i class="fas fa-calculator icon"></i>Final Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.Id}"></td>
+                        <td th:text="${product.Name}"></td>
+                        <td th:text="${product.Brand}"></td>
+                        <td th:text="${product.MadeIn}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.Quantity}"></td>
+                        <td th:text="${product.discountRate}"></td>
+                        <td th:text="${product.taxRate}"></td>
+                        <td th:text="${product.discountprice}"></td>
+                        <td th:text="${product.offerprice}"></td>
+                        <td th:text="${product.stockvalue}"></td>
+                        <td th:text="${product.finalprice}"></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

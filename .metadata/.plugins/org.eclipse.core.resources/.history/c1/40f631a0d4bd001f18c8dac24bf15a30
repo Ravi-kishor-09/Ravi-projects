@@ -1,0 +1,7 @@
+spring.application.name=spring1
+server.port=1111
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=ravi@123

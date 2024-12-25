@@ -1,0 +1,8 @@
+package com.sathya.spring1.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface productrepositort {
+
+}

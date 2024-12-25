@@ -1,0 +1,27 @@
+package com.sathya.spring1.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+@Entity
+public class productEntity {
+	private long Id;
+	private String Name;
+	private String Brand;
+	private String MadeIn;
+	private int Price;
+	private int Quantity;
+	private int discountRate;
+	private double taxRate;
+	private double discountprice;
+	private double offerprice;
+	private double stockvalue;
+	
+
+}

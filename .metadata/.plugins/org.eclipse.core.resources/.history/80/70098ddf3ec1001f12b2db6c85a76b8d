@@ -1,0 +1,84 @@
+package com.sathya.spring2.service;
+
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.sathya.spring2.entity.employeeentity;
+import com.sathya.spring2.model.employeemodel;
+import com.sathya.spring2.repository.employeerepository;
+
+@Service
+public class employeeservice {
+	@Autowired
+	employeerepository employeerepository;
+	
+	public void saveemployeeDetails(employeemodel employeemodel) {
+		double hra; 
+		hra = employeemodel.getBasicSalary()*0.20;
+		
+		double da;
+		da = employeemodel.getBasicSalary()*0.10;
+
+		double deductions;
+		deductions = employeemodel.getIncomeTax()+employeemodel.getProvidentFund()+employeemodel.getOtherDeductions();
+		
+		double grossSalary;    
+		grossSalary = employeemodel.getBasicSalary()+hra+da+employeemodel.getAllowances();
+		
+		double netSalary;   
+		netSalary = grossSalary - deductions;
+		
+		employeeentity employeeentity = new employeeentity();
+		employeeentity.setAge(employeemodel.getAge());
+		employeeentity.setAllowances(employeemodel.getAllowances());
+		employeeentity.setBasicSalary(employeemodel.getBasicSalary());
+		employeeentity.setIncometax(employeemodel.getIncomeTax());
+		employeeentity.setName(employeemodel.getName());
+		employeeentity.setGender(employeemodel.getGender());
+		employeeentity.setOtherDeductions(employeemodel.getOtherDeductions());
+		employeeentity.setProvidentFund(employeemodel.getProvidentFund());
+		employeeentity.setNetSalary(netSalary);
+		employeeentity.setDa(da);
+		employeeentity.setDeductions(deductions);
+		employeeentity.setHra(hra);
+		employeeentity.setNetSalary(netSalary);
+		employeeentity.setGrossSalary(grossSalary);
+		
+		employeerepository.save(employeeentity);
+		
+		
+	}
+	public List<employeeentity> getallDetails(){
+		List<employeeentity> employees = employeerepository.findAll();
+		
+		return employees;
+		
+	}
+	public employeeentity searchById(Long id) {
+		Optional<employeeentity> optionalData =employeerepository.findById(id);
+		if(optionalData.isPresent()) {
+			employeeentity employee = optionalData.get();
+			return employee;
+			
+		}
+		else {
+			return null;
+		}
+	}
+	public void deleteemployeeById(Long id) {
+		employeerepository.deleteById(id);
+		
+	}
+	
+	public void editById(Long id, employeemodel employeeModel) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+
+}

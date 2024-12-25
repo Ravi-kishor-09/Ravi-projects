@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        /* Body Background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(252, 176, 69, 0.7), rgba(255, 94, 77, 0.9));
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Text styling */
+        h1 {
+            color: #fff;
+            font-size: 4rem;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-out, glow 2s infinite alternate, rotateText 3s linear infinite;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Slide-in Animation */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glowing Text Animation */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Rotate Text Animation */
+        @keyframes rotateText {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hover Effect for Text */
+        h1:hover {
+            transform: scale(1.1) rotate(15deg);
+            background: linear-gradient(45deg, #feb47b, #ff7e5f);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Particle Effect Styling */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: particleAnim 5s infinite;
+        }
+
+        @keyframes particleAnim {
+            0% {
+                transform: translate(0, 0) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(400px, 800px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Circle Bubbles Animation */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            animation: bubbleAnim 6s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes bubbleAnim {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(100px, -200px) scale(1.5);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(200px, -400px) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .bubble:nth-child(1) {
+            top: 50%;
+            left: 30%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 6s;
+        }
+
+        .bubble:nth-child(2) {
+            top: 40%;
+            left: 60%;
+            width: 100px;
+            height: 100px;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(3) {
+            top: 30%;
+            left: 80%;
+            width: 120px;
+            height: 120px;
+            animation-duration: 10s;
+        }
+
+        /* Floating Button Styling */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff5722;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: floatBtn 3s ease-in-out infinite alternate;
+            cursor: pointer;
+        }
+
+        @keyframes floatBtn {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Text Background Effect */
+        .text-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff5722, #ffc107);
+            z-index: -1;
+            animation: backgroundAnimation 4s ease-in-out infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-background"></div>
+    <h1>Employee Details Entered Successfully...</h1>
+    
+    <!-- Floating button -->
+    <button class="floating-btn">Click Me!</button>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle" style="top: 10px; left: 20px; width: 5px; height: 5px;"></div>
+        <div class="particle" style="top: 30px; left: 50px; width: 7px; height: 7px;"></div>
+        <div class="particle" style="top: 60px; left: 80px; width: 10px; height: 10px;"></div>
+        <div class="particle" style="top: 100px; left: 150px; width: 4px; height: 4px;"></div>
+    </div>
+
+    <!-- Bubble Effect -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+</body>
+</html>

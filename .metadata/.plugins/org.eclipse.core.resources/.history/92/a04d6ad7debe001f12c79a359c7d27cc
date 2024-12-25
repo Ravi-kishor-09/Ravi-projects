@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Success</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            color: #28a745;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: text-glow 1.5s infinite alternate;
+            position: relative;
+            margin: 0;
+            padding: 20px;
+            border: 5px solid #28a745;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1:before {
+            content: "✔";
+            font-size: 3rem;
+            color: #28a745;
+            position: absolute;
+            left: -70px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: icon-bounce 1.5s infinite alternate;
+        }
+
+        @keyframes text-glow {
+            0% {
+                text-shadow: 0 0 10px #28a745, 0 0 20px #28a745, 0 0 30px #28a745, 0 0 40px #28a745;
+            }
+            100% {
+                text-shadow: 0 0 5px #28a745, 0 0 10px #28a745, 0 0 15px #28a745, 0 0 20px #28a745;
+            }
+        }
+
+        @keyframes icon-bounce {
+            0% {
+                transform: translateY(-50%) scale(1);
+            }
+            100% {
+                transform: translateY(-60%) scale(1.2);
+            }
+        }
+
+        h1:hover {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: #004085;
+            border-color: #004085;
+        }
+
+        h1:hover:before {
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Entered Successfully...</h1>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<body>
+		<div>
+			<h1> EMPLOYEE-LIST</h1>
+			<table border="1" rules="all" cellpadding="4">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Gender</th>
+						<th>BasicSalary</th>
+						<th>Hra</th>
+						<th>Da</th>
+						<th>IncomeTax</th>			 
+						<th>Allowances</th>
+						<th>Deductions</th>
+						<th>GrossSalary</th>
+						<th>NetSalary</th>
+						<th>ProvidentFund</th>
+						<th>OtherDeductions</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="employee:${employees}">
+						<td th:text="${employee.Id}"></td>
+						<td th:text="${employee.Name}"></td>
+						<td th:text="${employee.age}"></td>
+						<td th:text="${employee.gender}"></td>
+						<td th:text="${employee.basicSalary}"></td>
+						<td th:text="${employee.hra}"></td>
+						<td th:text="${employee.da}"></td>
+						<td th:text="${employee.incometax}"></td>
+						<td th:text="${employee.allowances}"></td>
+						<td th:text="${employee.deductions}"></td>
+						<td th:text="${employee.grossSalary}"></td>
+						<td th:text="${employee.netSalary}"></td>
+						<td th:text="${employee.providentFund}"></td>
+						<td th:text="${employee.otherDeductions}"></td>
+						<td>
+							<a th:href="@{'/delete/' + ${employee.id}}">Delete</a>
+							<a th:href="@{'/edit/' + ${employee.id}}">Edit</a>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

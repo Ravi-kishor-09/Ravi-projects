@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="lite blue"><center>
+	<h1>Product Form</h1>
+    <form th:action="@{/saveemployee}" method="post">
+		
+		 
+        <label >Id :</label>
+        <input type="number" name="Id" id="Id" placeholder="Enter Id" required>
+        <br><br>
+        <label>Name :</label>
+        <input type="text" name="Name" id="Name" placeholder="Enter Name" required>
+        <br><br>
+        <label>basicSalary :</label>
+        <input type="number" name="basicSalary" id="basicSalary" placeholder="Enter salary" required>
+        <br><br>
+        <label> age :</label>
+        <input type="number" name="age" id="age" placeholder="enter age" required>
+        <br><br>
+        <label>Gender :</label>
+        <input type="text" name="gender" id="gender" placeholder="enter gender" required>
+		<br><br>
+		        
+		        <button type="submit">save employee</button>
+				<button type="reset">Rest</button>
+        
+
+    </form>
+	</center>
+    
+</body>
+</html>

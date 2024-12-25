@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Product Form</title>
+    <style>
+        /* Body and Background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Grid */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 20px),
+                        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 20px);
+            z-index: 1;
+            animation: moveGrid 10s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-20px, -20px);
+            }
+        }
+
+        /* Form Container */
+        form {
+            background: linear-gradient(145deg, #16222a, #3a6073);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 212, 255, 0.2);
+            width: 320px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00ffe7;
+            text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+        }
+
+        /* Labels */
+        form label {
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 5px;
+            color: #d9e3ec;
+        }
+
+        /* Input Fields */
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.85rem;
+            box-shadow: inset 0 0 8px rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        form input::placeholder {
+            color: #8fa1b3;
+        }
+
+        form input:focus {
+            box-shadow: 0 0 12px #00ffe7, inset 0 0 15px #00ffe7;
+            outline: none;
+        }
+
+        /* Buttons */
+        form button {
+            width: 48%;
+            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button[type="submit"] {
+            background: linear-gradient(145deg, #00c6ff, #0072ff);
+            box-shadow: 0 6px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        form button[type="reset"] {
+            background: linear-gradient(145deg, #ff416c, #ff4b2b);
+            box-shadow: 0 6px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Keyframes for Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>✨ Product Form</h1>
+        <form th:action="@{/saveproduct}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter product name" required>
+            <label for="brand">Brand:</label>
+            <input type="text" name="Brand" id="brand" placeholder="Enter product brand" required>
+            <label for="madein">Made In:</label>
+            <input type="text" name="MadeIn" id="madein" placeholder="Enter origin" required>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" placeholder="Enter price" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" placeholder="Enter quantity" required>
+            <label for="discountRate">Discount Rate:</label>
+            <input type="number" name="discountRate" id="discountRate" placeholder="Enter discount rate" required>
+            <div class="button-group">
+                <button type="submit">Save</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

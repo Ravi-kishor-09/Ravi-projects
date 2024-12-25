@@ -1,0 +1,49 @@
+package com.sathya.spring1.calculation;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class calculation {
+
+    public void calculateValues(ProductEntity productEntity) {
+        // Calculate discount price
+        double discountPrice = (product.getPrice() * product.getDiscountRate()) / 100;
+
+        // Calculate offer price (price after discount)
+        double offerPrice = product.getPrice() - discountPrice;
+
+        // Calculate stock value (offer price multiplied by quantity)
+        double stockValue = offerPrice * product.getQuantity();
+
+        // Calculate final price (add tax to offer price)
+        double finalPrice = offerPrice + ((offerPrice * product.getTaxRate()) / 100);
+
+        // Set calculated values back to product
+        product.setDiscountPrice(discountPrice);
+        product.setOfferPrice(offerPrice);
+        product.setStockValue(stockValue);
+        product.setFinalPrice(finalPrice);
+    }
+
+    public static void main(String[] args) {
+        // Create ProductEntity instance
+        ProductEntity product = new ProductEntity();
+
+        // Create Calculation instance
+        Calculation calc = new Calculation();
+
+        // Perform calculations
+        calc.calculateValues(product);
+
+        // Print the updated product details
+        System.out.println(product);
+    }
+}
+

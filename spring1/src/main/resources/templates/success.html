@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Success</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #fbc2eb, #a6c1ee, #fad0c4, #ff9a9e);
+            background-size: 300% 300%;
+            animation: backgroundFlow 8s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px #32cd32, 0 0 35px #32cd32;
+            margin: 0;
+            padding: 40px 60px;
+            background: linear-gradient(135deg, #28a745, #32cd32);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: glowEffect 3s infinite alternate;
+        }
+
+        h1:before, h1:after {
+            content: "🌟";
+            font-size: 2.5rem;
+            color: #ffdd57;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: sparkleMove 2s infinite alternate;
+        }
+
+        h1:before {
+            left: -60px;
+        }
+
+        h1:after {
+            right: -60px;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+            animation: textAppear 3s infinite alternate;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-icons span {
+            position: absolute;
+            display: block;
+            font-size: 2rem;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
+            animation: floatUp 5s infinite linear;
+        }
+
+        .floating-icons span:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .floating-icons span:nth-child(2) { left: 40%; animation-delay: 1s; }
+        .floating-icons span:nth-child(3) { left: 60%; animation-delay: 2s; }
+        .floating-icons span:nth-child(4) { left: 80%; animation-delay: 3s; }
+        .floating-icons span:nth-child(5) { left: 50%; animation-delay: 4s; }
+
+        @keyframes backgroundFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes glowEffect {
+            0% {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.3);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 0 25px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes sparkleMove {
+            0% { transform: translateY(-50%) scale(1); opacity: 1; }
+            100% { transform: translateY(-60%) scale(1.2); opacity: 0.8; }
+        }
+
+        @keyframes textAppear {
+            0% { opacity: 0.5; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-50%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-icons">
+        <span>✨</span>
+        <span>🎉</span>
+        <span>💫</span>
+        <span>🌟</span>
+        <span>🎊</span>
+    </div>
+    <h1>
+        Product Entered Successfully!
+        <span>Thank you for your contribution! 🌟</span>
+    </h1>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.sathya.spring2.entity;
+
+public class employeeentity {
+
+}

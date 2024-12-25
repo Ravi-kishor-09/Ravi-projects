@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="lite blue"><center>
+	<h1>Product Form</h1>
+    <form th:action="@{'/editbyid/'+${id}}" th:object="${employee}" method="post">
+		
+		 
+        
+        <label>Name :</label>
+        <input type="text" name="Name" th:field="*{Name}" placeholder="Enter Name" required>
+        <br><br>
+        <label>basicSalary :</label>
+        <input type="number" name="basicSalary" th:field="*{basicSalary}" placeholder="Enter salary" required>
+        <br><br>
+        <label> age :</label>
+        <input type="number" name="age" th:field="*{age}" placeholder="enter age" required>
+        <br><br>
+        <label>Gender :</label>
+        <input type="text" name="gender" th:field="*{gender}" placeholder="enter gender" required>
+		<br><br>
+		<label>incomeTax :</label>
+		       <input type="text" name="incomeTax" th:field="*{incomeTax}" placeholder="enter incomeTax" required>
+			<br><br>
+			<label>allowances :</label>
+			       <input type="text" name="allowances" th:field="*{allowances}" placeholder="enter allowances" required>
+				<br><br>
+				<label>providentFund :</label>
+				       <input type="text" name="providentFund" th:field="*{providentFund}" placeholder="enter providentFund" required>
+					<br><br>
+					<label>otherDeductions :</label>
+					       <input type="text" name="otherDeductions" th:field="*{otherDeductions}" placeholder="enter otherDeductions" required>
+						<br><br>
+		        
+		        <button type="submit">Update</button>
+				
+        
+
+    </form>
+	</center>
+    
+</body>
+</html>

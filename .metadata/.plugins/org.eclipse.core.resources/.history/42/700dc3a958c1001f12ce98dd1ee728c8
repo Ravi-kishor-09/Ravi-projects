@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out, bounce 1s infinite;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        h1:hover {
+            color: #feb47b;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee details Entered successfully...</h1>
+</body>
+</html>

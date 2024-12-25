@@ -1,0 +1,43 @@
+package com.sathya.spring2.controller;
+
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+import com.sathya.spring2.entity.employeeentity;
+import com.sathya.spring2.model.employeemodel;
+import com.sathya.spring2.service.employeeservice;
+
+
+@Controller
+public class employeecontroller {
+	@Autowired
+	employeeservice employeeservice;
+	
+	@GetMapping("/employee")
+	public String greet() {
+		return "add-employee";
+	}
+	@PostMapping("/saveemployee")
+	public String saveemployee(employeemodel employeemodel) {
+		employeeservice.saveemployeeDetails(employeemodel);
+		
+		return "success";
+	}
+	@GetMapping("/getallproducts")
+	public String getallDetails(Model model) {
+		List<employeeentity> emp = employeeservice.getallDetails();
+		
+		model.addAttribute("emp", emp);
+		
+		return  "employee-list";
+	}
+	
+
+	
+}

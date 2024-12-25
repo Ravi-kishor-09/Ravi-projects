@@ -1,0 +1,5 @@
+package com.sathya.spring2.repository;
+
+public interface employeerepository {
+
+}

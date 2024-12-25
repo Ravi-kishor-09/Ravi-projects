@@ -1,0 +1,30 @@
+<html>
+	<body>
+		<h1> Search for a product</h1>
+		<form th:action="@{/searchbyid}" method="post">
+			<label>Enter Id:</label>
+			<input type="number" name="id">
+			<button type="submit">Search</button>
+		</form>
+		<div th:if="${employee !=null}">
+			<h2>Product Details</h2>
+			<p><strong>Id:</strong><span th:text="${employee.Id}"></span></p>
+			<p><strong>Name:</strong><span th:text="${employee.Name}"></span></p>
+			<p><strong>Age:</strong><span th:text="${employee.age}"></span></p>
+			<p><strong>Gender:</strong><span th:text="${employee.gender}"></span></p>
+			<p><strong>BasicSalary:</strong><span th:text="${employee.basicSalary}"></span></p>
+			<p><strong>HRA:</strong><span th:text="${employee.hra}"></span></p>
+			<p><strong>DA:</strong><span th:text="${employee.da}"></span></p>
+			<p><strong>IncomeTax:</strong><span th:text="${employee.incometax}"></span></p>
+			<p><strong>Allowances:</strong><span th:text="${employee.allowances}"></span></p>
+			<p><strong>Deductions:</strong><span th:text="${employee.deductions}"></span></p>
+			<p><strong>GrossSalary:</strong><span th:text="${employee.grossSalary}"></span></p>
+			<p><strong>NetSalary:</strong><span th:text="${employee.netSalary}"></span></p>
+			<p><strong>ProvidentFund:</strong><span th:text="${employee.providentFund}"></span></p>
+			<p><strong>OtherDeductions:</strong><span th:text="${employee.otherDeductions}"></span></p>
+		</div>
+		<div th:if="${employee == null}">
+			<p> No Employee Found</p>
+		</div>
+	</body>
+</html>
